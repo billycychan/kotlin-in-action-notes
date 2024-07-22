@@ -1,3 +1,5 @@
+# 1. Kotlin what and why
+
 >  Kotlin is a modern programming language on the Java virtual machine (JVM) and beyond” “ It’s a general-purpose, concise, safe, and pragmatic language.” Developers used it for writing mobile apps, build service-side applications and create desktop software.
 
 ## 1.1 A taste of Kotlin

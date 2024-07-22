@@ -1,4 +1,4 @@
-# Kotlin basics
+# 2. Kotlin basics
 
 ## 2.1 Basic Elements: Function and variable
 

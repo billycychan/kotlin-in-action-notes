@@ -1,4 +1,4 @@
-# Chapter3 - Defining and calling functions
+# 3.  Defining and calling functions
 
 ## 3.1 Creating collections in Kotlin
 
