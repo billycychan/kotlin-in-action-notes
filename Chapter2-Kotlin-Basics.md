@@ -1,11 +1,180 @@
-They need to be imported if they’re in a different package
+# Kotlin basics
+
+## 2.1 Basic Elements: Function and variable
+
+### 2.1.1 Writing your first kotlin program: "Hello world!"
 
 ```kotlin
+fun main() {
+    println("Hello World!")
+}
+```
+
+### 2.1.2 Declaring functions with parameters and return values
+
+```kotlin
+fun max(a: Int, b: Int): Int {
+    return if (a > b) a else b
+}
+
+fun main() {
+    println(max(1, 2))
+    // 2
+}
+```
+
+- What is an expression?→an expression has a value, which can be used as part of another expression,
+- What is an statement?→a statement is always a top-level element in its enclosing block and doesn’t have its own value.
+
+### 2.1.3 Making function definitions more concise by using expression bodies
+
+```kotlin
+fun max(a: Int, b: Int): Int = if (a > b) a else b
+```
+
+- What is a block body→a function is written in curly braces
+- What is expression body→a function returns an expression directly2.1.4 Declaring variables to store data
+
+### 2.1.4 Declaring variable to store data
+
+A variable declaration in Kotlin starts with a keyword (`val` or `var`)
+
+```kotlin
+val question: String = "The Ultimate Question of Life, the Universe, and Everything"
+val answer: Int = 42
+
+// Omit the type declaration
+val question = "The Ultimate Question of Life, the Universe, and Everything"
+val answer = 42
+
+val yearsToCompute = 7.5e6 // Double
+
+
+```
+
+### 2.1.5 Marking a variable as read only or reassignable
+
+- val declares a read-only reference and can be only assigned once. 
+- var declares re-assignable reference.
+
+### 2.1.6 Easier string formatting: String templates
+
+```kotlin
+fun main() {
+    val input = readln()
+    val name = if (input.isNotBlank() ) input else "Kotlin"
+    println("Hello, $name!")
+}
+
+// with curly braces, we could put expression 
+fun main() {
+    val name = readln()
+    if (name.isNotBlank()) {
+        println("Hello, ${name.length}-letter person!")     ❶
+    }
+    // Blank input: (no output)”  
+```
+
+## 2.2 Encapsulating behavior and data: Classes and properties
+
+```kotlin
+// Java
+public class Person {
+    private final String name;
+ 
+    public Person(String name) {
+        this.name = name;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+}
+```
+
+```kotlin
+class Person(val name: String)
+```
+
+### 2.2.1 Associating data with a class and making it accessible: Properties
+
+```kotlin
+class Person(
+    val name: String, // read only, generate a field and trival getter
+    var isStudent: Boolean // a field, getter, setter
+)
+```
+
+```kotlin
+// Use Person.kt in Java class
+public class Demo {
+    public static void main(String[] args) {
+        Person person = new Person("Bob", true);
+        System.out.println(person.getName());
+        // Bob
+        System.out.println(person.isStudent());
+        // true
+        person.setStudent(false); // Graduation!
+        System.out.println(person.isStudent());
+        // false
+    }
+}
+```
+
+```kotlin
+// User Person class from Kotlin
+fun main() {
+    val person = Person("Bob", true)          
+    println(person.name)                      
+    // Bob
+    println(person.isStudent) )               
+    // true
+    person.isStudent = false // Graduation!   
+    println(person.isStudent)
+    // false
+}
+```
+
+
+
+### 2.2.2 Computing properties instead of storing their values: Custom accessors
+
+```kotlin
+class Rectangle(val: height: Int, val width: Int) {
+    val isSquare: Boolean
+    get() { // property getter declaration
+        return height == width   
+    }
+    // val isSquare get() = height == width
+}
+```
+
+### 2.2.3 Kotlin source code layout: Directories and packages
+
+- Kotlin uses the concept of packages to organize classes. 
+- Every Kotlin file can have a package statement at the beginning, and all declarations (classes, functions, and properties) defined in the file will be placed in that package
+
+```kotlin
+package geometry.shapes
+
+class Rectangle(val height: Int, val width: Int) {
+    val isSquare: Boolean
+        get() = height == width  
+} 
+
+fun createUniteSquare(): Rectangle {
+    return Rectangle(1, 1)
+} 
+```
+
+```kotlin
+// They need to be imported if they’re in a different package
 package geometry.example
+ 
 import geometry.shapes.Rectangle          
 import geometry.shapes.createUnitSquare  
 // import geometry.shapes.* 
-
+ 
 fun main() {
     println(Rectangle(3, 4).isSquare)
     // false
@@ -13,6 +182,8 @@ fun main() {
     // true
 }
 ```
+
+
 
 ## 2.3 Representing and handling choices: Enums and when
 
