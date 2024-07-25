@@ -138,13 +138,13 @@ abstract class Animated { // `abstract`, cannot create an instance of it
 
 Kotlin provides public protected and private modifiers,  analgous to their Java counterparts.
 
-public - visible everywhere
+**public** - visible everywhere
 
-internal - visible in a module
+**internal** - visible in a module
 
-protected - visible in subclasses
+**protected** - visible in subclasses
 
-private - visible inside a class or in the case of top-level declarations, visible inside a file.
+**private** - visible inside a class or in the case of top-level declarations, visible inside a file.
 
 
 
@@ -322,7 +322,7 @@ class User(val nickname: String,
 fun main() {
     val alice = User("Alice") // “ Uses the default value true for the isSubscribed parameter”
 
-    println(alice.isSubscribed) // t ru e
+    println(alice.isSubscribed) // true   
     val bob = User("Bob", false)
     println(bob.isSubscribed) // false
     val carol = User("Carol", isSubscribed = false)
